@@ -6,6 +6,13 @@ class MoviesController < ApplicationController
     render({ :template => "movie_templates/index" })
   end
 
+  def delete_this
+    the_id = params.fetch("path_id")
+    the_movie = Movie.find(the_id)
+    the_movie.destroy
+    redirect_to("/movies")
+  end
+
   def create
     the_movie = Movie.new
     the_movie.title = params.fetch("title_input")
@@ -13,6 +20,7 @@ class MoviesController < ApplicationController
     the_movie.duration = params.fetch("duration_input")
     the_movie.description = params.fetch("description_input")
     the_movie.image = params.fetch("image_input")
+    the_movie.director_id = params.fetch("director_id_input")
     the_movie.save
     redirect_to("/movies")
   end
@@ -24,13 +32,6 @@ class MoviesController < ApplicationController
     @the_movie = matching_movies.at(0)
 
     render({ :template => "movie_templates/show" })
-  end
-
-  def delete_this
-    the_id = params.fetch("path_id")
-    the_movie = Movie.find(the_id)
-    the_movie.destroy
-    redirect_to("/movies")
   end
 
   def update
