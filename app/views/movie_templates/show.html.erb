@@ -6,6 +6,34 @@
   Go back
 </a>
 
+<a href="/movies">Go back</a>
+<br>
+<a href="/delete_movie/<%= @the_movie.id %>">Delete director</a>
+<hr>
+
+<form action="/movies/<%= @the_movie.id %>" method="post">
+  <label for="title_field">Title:</label>
+  <input id="title_field" type="text" name="title_input" value="<%= @the_movie.title %>">
+  <br>
+  <label for="year_field">Year:</label>
+  <input id="year_field" type="number" name="year_input" value="<%= @the_movie.year %>">
+  <br>
+  <label for="duration_field">Duration:</label>
+  <input id="duration_field" type="number" name="duration_input" value="<%= @the_movie.duration %>">
+  <br>
+  <label for="description_field">Description:</label>
+  <textarea id="description_field" type="text" name="description_input"><%= @the_movie.description %></textarea>
+  <br>
+  <label for="image_field">Image:</label>
+  <input id="image_field" type="text" name="image_input" value="<%= @the_movie.image %>">
+  <br>
+  <label for="director_id_field">Director id:</label>
+  <input id="director_id_field" type="number" name="director_id_input" value="<%= @the_movie.director_id %>">
+  <button>Update movie</button>
+</form>
+
+
+
 <hr>
 
 <dl>
