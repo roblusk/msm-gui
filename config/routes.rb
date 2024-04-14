@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get("/directors/eldest", { :controller => "directors", :action => "min_dob" })
 
   get("/directors", { :controller => "directors", :action => "index" })
+  post("directors", { :controller => "directors", :action => "create" })
   get("/directors/:path_id", { :controller => "directors", :action => "show" })
 
   get("/movies", { :controller => "movies", :action => "index" })
